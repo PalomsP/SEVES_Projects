@@ -20,7 +20,8 @@ from matplotlib.ticker import NullFormatter
 
 #Dossier de travail
 rep = "C:/Users/33671/Desktop/PIERRE_PALOMAR"  # chemin du dossier à parcourir
-mon_fichier = "ACP_Bitkine_Param_Nouradine.csv"
+mon_fichier = "ACP_Bitkine_Param_Nouradine.csv" # le fichier doit être un excel comoposé des titre de variable et des noms d'individus dans un tableau sans espace autour, sinon le csv est mal interprété.
+
 
 #modification du dossier de travail
 import os
