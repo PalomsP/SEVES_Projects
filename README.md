@@ -46,7 +46,7 @@ Par ailleurs, ne pas oublier de renommer votre PDF de sortie.
 
 # Tutoriel
 
-Lancer le script dans le même répertoire que les fichiers *.csv, *.bln et *.dat fournis dans le répertoire tutoriel
+Lancer le script dans le même répertoire que les fichiers *.csv, *.bln et *.dat fournis.
 
 
 
