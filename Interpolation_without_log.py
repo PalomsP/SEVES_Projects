@@ -4,18 +4,18 @@ Created on Wed May  3 09:38:10 2023
 
 @author: Pierre
 """
-from math import *
+from math import * # utile pour floor
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
-from matplotlib import colors
-from matplotlib import cm
+# from matplotlib import colors
+# from matplotlib import cm
 import os
 import numpy as np
 import pandas as pd
-import scipy.interpolate as sp
+# import scipy.interpolate as sp
 from scipy.interpolate import griddata
-from scipy.interpolate import RegularGridInterpolator
-from matplotlib.ticker import NullFormatter
+# from scipy.interpolate import RegularGridInterpolator
+# from matplotlib.ticker import NullFormatter
 from matplotlib.backends.backend_pdf import PdfPages
 
 def list_fichier(rep):
@@ -273,33 +273,33 @@ def Panneau(X_interpol, Z_interpol, R_interpol, dt_tableau, oid):
     ## Titre selon de le nom du village prospecté récupérer dans le dataframe
     fig.suptitle(dt_tableau.loc[indice[0], 'NOM_VILLAG'], fontsize=22, x=0.5, y=1.05)
     
-    ## Affichage des débits 
-    if not np.isnan(dt_tableau.loc[indice[0], 'Q_DEVELOPP']) : 
-        Qd = "Qd = " + str(dt_tableau.loc[indice[0], 'Q_DEVELOPP'])+" m3/h"
-        ax3.text(0.4, 1.09, Qd, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'blue')
-    else : 
-        Qd = "Qd non renseigné"
-        ax3.text(0.4, 1.09, Qd, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'blue')
+    # ## Affichage des débits 
+    # if not np.isnan(dt_tableau.loc[indice[0], 'Q_DEVELOPP']) : 
+    #     Qd = "Qd = " + str(dt_tableau.loc[indice[0], 'Q_DEVELOPP'])+" m3/h"
+    #     ax3.text(0.4, 1.09, Qd, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'blue')
+    # else : 
+    #     Qd = "Qd non renseigné"
+    #     ax3.text(0.4, 1.09, Qd, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'blue')
     
-    if not np.isnan(dt_tableau.loc[indice[0], 'Q_MAX_PALI']) : 
-        Qmax_Paliers = "Qmax_Paliers = " + str(dt_tableau.loc[indice[0], 'Q_MAX_PALI'])+" m3/h"
-        ax3.text(0.1, 1.1, Qmax_Paliers, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'green')
-    else : 
-        Qmax_Paliers = "Qmax_Paliers non renseigné"
-        ax3.text(0.1, 1.1, Qmax_Paliers, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'green')
+    # if not np.isnan(dt_tableau.loc[indice[0], 'Q_MAX_PALI']) : 
+    #     Qmax_Paliers = "Qmax_Paliers = " + str(dt_tableau.loc[indice[0], 'Q_MAX_PALI'])+" m3/h"
+    #     ax3.text(0.1, 1.1, Qmax_Paliers, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'green')
+    # else : 
+    #     Qmax_Paliers = "Qmax_Paliers non renseigné"
+    #     ax3.text(0.1, 1.1, Qmax_Paliers, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10, color = 'green')
     
-    ## Affichage rabattement et débit spécifiques
-    if not np.isnan(dt_tableau.loc[indice[0], 'RABATTEMEN']) : 
-        text_rabattement = "Rabattement = " + str(dt_tableau.loc[indice[0], 'RABATTEMEN'])+" m" + '  Q_specifiq = '+ str(dt_tableau.loc[indice[0], 'Q_SPECIFIQUE'])+' m3/m'
-        ax3.text(0.9, 1.1, text_rabattement, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 11, color = 'red')
-    else : 
-        text_rabattement  = "Rabattement non renseigné"
-        ax3.text(0.9, 1.1, text_rabattement, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 11, color = 'red')
+    # ## Affichage rabattement et débit spécifiques
+    # if not np.isnan(dt_tableau.loc[indice[0], 'RABATTEMEN']) : 
+    #     text_rabattement = "Rabattement = " + str(dt_tableau.loc[indice[0], 'RABATTEMEN'])+" m" + '  Q_specifiq = '+ str(dt_tableau.loc[indice[0], 'Q_SPECIFIQUE'])+' m3/m'
+    #     ax3.text(0.9, 1.1, text_rabattement, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 11, color = 'red')
+    # else : 
+    #     text_rabattement  = "Rabattement non renseigné"
+    #     ax3.text(0.9, 1.1, text_rabattement, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 11, color = 'red')
     
-    ## Ajout du RMS factor
-    RMS = float(dt_tableau.loc[dt_tableau['OID'] == oid, 'RMS_FACTOR'])
-    text_RMS = 'Erreur absolue : ' + str(float(RMS))+'%'
-    ax3.text(0.9, 0.05, text_RMS, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10)
+    # ## Ajout du RMS factor
+    # RMS = float(dt_tableau.loc[dt_tableau['OID'] == oid, 'RMS_FACTOR'])
+    # text_RMS = 'Erreur absolue : ' + str(float(RMS))+'%'
+    # ax3.text(0.9, 0.05, text_RMS, ha='center', va='bottom', transform=ax3.transAxes, fontsize = 10)
   
     ## Ajout altitude du forage 
     # Z = float(dt_tableau.loc[dt_tableau['OID'] == oid, 'Z'])
@@ -342,22 +342,22 @@ def traitement_forage_panneau(nom_rep, Fichier_Panneau, fichier_blanc, colonne_X
 ###################################################################################################################
 ## MAIN 
 
-rep = "C:/Users/33671/Desktop/PIERRE_PALOMAR/Panneaux_Wenner_PD_comparaison"  # chemin du dossier à parcourir
+rep = u"C:\\test_OG"  # chemin du dossier à parcourir
 list_fichier(rep)
 colonne_X = 'X-location'
 colonne_Z = 'Z-location'
 
 
 #%% Récupération des données excel
-nom_rep="C:/Users/33671/Desktop/PIERRE_PALOMAR/Data_Panneaux_Bitkine"
-tableau_forage = "CUTOFF005.csv"
+nom_rep=u"C:\\test_OG"
+tableau_forage = "test_OG.csv"
 
 dt_tableau = get_tableau_forage(tableau_forage, nom_rep)
  
 #%%
 figs = []
 
-nom_rep="C:/Users/33671/Desktop/PIERRE_PALOMAR/Data_Panneaux_Bitkine"
+nom_rep=u"C:\\test_OG"
 os.chdir(nom_rep)
 os.listdir()
 os.getcwd()
@@ -369,6 +369,6 @@ for oids in dt_tableau["OID"].to_numpy() :
     fig = traitement_forage_panneau(nom_rep,Fichier_Panneau,fichier_blanc, colonne_X,colonne_Z,oids, dt_tableau)
     figs.append(fig)
 
-with PdfPages('Test_Julio.pdf') as pdf:
+with PdfPages('sortiePDF.pdf') as pdf:
     for fig in figs :
         pdf.savefig(fig, bbox_inches='tight')  # regarder dpi =
